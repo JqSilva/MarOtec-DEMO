@@ -3,25 +3,55 @@ import Curso from "../components/Curso.astro";
 import { cursos } from "../data/cursos";
 ---
 
-<section id="services" class="py-8 bg-gradient-to-b from-[#f7faff] to-white min-h-[900px] scroll-mt-16">
-  <div class="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl text-center font-extrabold text-black mb-6">Cursos</h2>
-    <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-5">
-      Conoce nuestras capacitaciones diseñadas para mejorar tus competencias técnicas y de seguridad.
-    </p><br>
+<!-- Sección Capacitaciones -->
+<section id="services" class="py-16 bg-gradient-to-b from-[#f7faff] to-white scroll-mt-16">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl text-center font-extrabold text-black mb-6">Capacitaciones</h2>
+    <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-10">
+      Programas prácticos y teóricos para potenciar tus competencias técnicas y reforzar la seguridad en trabajos eléctricos.
+    </p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
-        cursos.map((curso, index) => (
-          <div
-            class="slide-up"
-            data-delay={`${index * 0.15}`}
-            data-start="top 80%"
-            data-duration="0.6"
-          >
-            <Curso {...curso} id={`${index}`} />
-          </div>
-        ))
+        cursos
+          .filter(curso => curso.tipo === "capacitacion")
+          .map((curso, index) => (
+            <div
+              class="slide-up shadow-lg hover:shadow-xl transition rounded-lg bg-white"
+              data-delay={`${index * 0.15}`}
+              data-start="top 80%"
+              data-duration="0.6"
+            >
+              <Curso {...curso} id={`${index}`} />
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Sección Certificaciones -->
+<section  class="py-16 bg-gradient-to-b from-[#f3f6ff] to-white scroll-mt-16">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl text-center font-extrabold text-black mb-6">Certificaciones</h2>
+    <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-10">
+      Acreditaciones que validan tus habilidades y conocimientos para realizar trabajos con tensión e instalaciones energizadas.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        cursos
+          .filter(curso => curso.tipo === "certificacion")
+          .map((curso, index) => (
+            <div
+              class="slide-up shadow-lg hover:shadow-2xl transition rounded-lg bg-gray-800 border border-gray-700"
+              data-delay={`${index * 0.15}`}
+              data-start="top 80%"
+              data-duration="0.6"
+            >
+              <Curso {...curso} id={`cert-${index}`} />
+            </div>
+          ))
       }
     </div>
   </div>
@@ -38,7 +68,7 @@ import { cursos } from "../data/cursos";
   .curso-card {
     width: 100%;
     max-width: 384px;
-    aspect-ratio: 1;
+    min-height: 300px; /* más baja */
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
@@ -55,13 +85,30 @@ import { cursos } from "../data/cursos";
   }
 
   .card-back {
-    background-color: oklch(21% 0.034 264.665);
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY(180deg);
-  }
+  background-color: oklch(21% 0.034 264.665);
+  color: black;
+  display: flex;
+  flex-direction: column; /* apila contenido */
+  justify-content: space-between; /* contenido arriba, botón abajo */
+  padding: 1rem;
+  transform: rotateY(180deg);
+  overflow-y: auto; /* si es muy largo, scroll interno */
+}
+
+.card-back .volver-btn {
+  background-color: #5372F0;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card-back .volver-btn:hover {
+  background-color: #0A256E;
+}
 
   .card-back h6 { color: white; }
   .card-back p { color: oklch(70.7% 0.022 261.325); }
