@@ -17,7 +17,7 @@ import { cursos } from "../data/cursos";
           .filter(curso => curso.tipo === "capacitacion")
           .map((curso, index) => (
             <div
-              class="slide-up shadow-lg hover:shadow-xl transition rounded-lg bg-white"
+              class="slide-up"
               data-delay={`${index * 0.15}`}
               data-start="top 80%"
               data-duration="0.6"
@@ -44,7 +44,7 @@ import { cursos } from "../data/cursos";
           .filter(curso => curso.tipo === "certificacion")
           .map((curso, index) => (
             <div
-              class="slide-up shadow-lg hover:shadow-2xl transition rounded-lg bg-gray-800 border border-gray-700"
+              class="slide-up "
               data-delay={`${index * 0.15}`}
               data-start="top 80%"
               data-duration="0.6"
