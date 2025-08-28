@@ -8,21 +8,29 @@ import Footer from "../components/Footer.astro";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    
+
     <title>Mar Otec</title>
 
-
-    <link rel="icon" type="image/svg+xml" href="/landing-copy/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/MarOtec-DEMO/favicon.svg" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mar Otec ofrece capacitación, certificación y entrenamiento especializado en trabajos con tensión (TcT) e instalaciones energizadas. Formación para empresas y profesionales con instructores certificados y experiencia en terreno." />
+    <meta
+      name="description"
+      content="Mar Otec ofrece capacitación, certificación y entrenamiento especializado en trabajos con tensión (TcT) e instalaciones energizadas. Formación para empresas y profesionales con instructores certificados y experiencia en terreno."
+    />
 
-    <meta name="google-site-verification" content="Sl9z1nG3HhMLBJJLygOrrl1u8RFzd7QlsYKwQjDnLqU" />
+    <meta
+      name="google-site-verification"
+      content="Sl9z1nG3HhMLBJJLygOrrl1u8RFzd7QlsYKwQjDnLqU"
+    />
 
     <meta property="og:url" content="https://mar-otec.cl/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Mar Otec Capacitaciones" />
-    <meta property="og:description" content="Capacitación y certificación en trabajos con tensión (TcT) e instalaciones energizadas. Formación práctica con expertos y certificación oficial." />
+    <meta
+      property="og:description"
+      content="Capacitación y certificación en trabajos con tensión (TcT) e instalaciones energizadas. Formación práctica con expertos y certificación oficial."
+    />
 
     <meta property="og:image" content="" />
     <meta property="og:locale" content="es_ES" />
@@ -30,15 +38,15 @@ import Footer from "../components/Footer.astro";
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@mar_otec" />
     <meta name="twitter:title" content="Mar Otec Capacitaciones" />
-    <meta name="twitter:description" content="Capacitación y certificación en trabajos con tensión (TcT) e instalaciones energizadas. Formación práctica con expertos y certificación oficial." />
+    <meta
+      name="twitter:description"
+      content="Capacitación y certificación en trabajos con tensión (TcT) e instalaciones energizadas. Formación práctica con expertos y certificación oficial."
+    />
     <meta name="twitter:image" content="" />
     <meta name="twitter:creator" content="@joaquiv" />
-    
-
   </head>
 
   <body class="flex flex-col min-h-screen overflow-x-hidden bg-[#101828]">
-
     <Header />
 
     <main>
@@ -46,30 +54,27 @@ import Footer from "../components/Footer.astro";
     </main>
 
     <Footer />
-
   </body>
 </html>
 
-
-
-    <style>
-      html,
-      body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        scroll-behavior: smooth;
-      }
-      
-    </style>
-
-
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
       const target = e.target;
-      const btn = (target instanceof Element) ? target.closest(".btn-curso, .btn-back") : null;
+      const btn =
+        target instanceof Element
+          ? target.closest(".btn-curso, .btn-back")
+          : null;
       if (!btn) return;
 
       const id = (btn as HTMLElement).dataset.id;
@@ -85,4 +90,3 @@ import Footer from "../components/Footer.astro";
     });
   });
 </script>
-

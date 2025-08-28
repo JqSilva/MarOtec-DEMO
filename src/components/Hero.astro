@@ -4,28 +4,33 @@ import Obras from "../assets/svg/obras.svg";
 import Mantenimiento from "../assets/svg/mantenimiento.svg";
 ---
 
-
-
 <section
-  class="hero-clip relative z-10 w-full  h-screen flex items-center justify-center text-center overflow-hidden"
-  
+  class="hero-clip relative z-10 w-full h-screen flex items-center justify-center text-center overflow-hidden"
 >
   <!--  Fondo dinámico -->
-  <div id="hero-bg" class="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 bg-[center_60%] sm:bg-[center_40%] md:bg-[center_30%] lg:bg-[center_20%]"></div>
+  <div
+    id="hero-bg"
+    class="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 bg-[center_60%] sm:bg-[center_40%] md:bg-[center_30%] lg:bg-[center_20%]"
+  >
+  </div>
 
   <!-- Gradiente oscuro encima -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/90"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/90">
+  </div>
 
   <!-- Contenido -->
-  <div class="relative z-10 w-full max-w-screen-xl mx-auto px-4 sm:px-8 sm:mt-30 md:-mt-40">
-
+  <div
+    class="relative z-10 w-full max-w-screen-xl mx-auto px-4 sm:px-8 sm:mt-30 md:-mt-40"
+  >
     <h1 class="font-bold text-white leading-tight text-shadow">
-      <span class="block text-gray-300 tracking-widest uppercase text-lg sm:text-xl mb-2">
+      <span
+        class="block text-gray-300 tracking-widest uppercase text-lg sm:text-xl mb-2"
+      >
         Mar Otec
       </span>
       <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-        <span class="text-[#5372F0]">Capacitación</span> 
-        <span class="text-white">y</span> 
+        <span class="text-[#5372F0]">Capacitación</span>
+        <span class="text-white">y</span>
         <span class="text-[#5372F0]">certificación</span>
       </span>
       <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl">
@@ -44,33 +49,39 @@ import Mantenimiento from "../assets/svg/mantenimiento.svg";
 
     <!-- Slider dots (estáticos) -->
     <div id="slider-dots" class="flex justify-center mt-6 space-x-2">
-      <span data-index="0" class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"></span>
-      <span data-index="1" class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"></span>
-      <span data-index="2" class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"></span>
+      <span
+        data-index="0"
+        class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"
+      ></span>
+      <span
+        data-index="1"
+        class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"
+      ></span>
+      <span
+        data-index="2"
+        class="w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer"
+      ></span>
     </div>
   </div>
 </section>
 
-
-
 <script is:inline>
-
   const isMobile = window.innerWidth <= 500;
   const images = isMobile
     ? [
-        '/landing-copy/images/hero1-mobile.webp',
-        '/landing-copy/images/hero2-mobile.webp',
-        '/landing-copy/images/hero3-mobile.webp',
+        "/MarOtec-DEMO/images/hero1-mobile.webp",
+        "/MarOtec-DEMO/images/hero2-mobile.webp",
+        "/MarOtec-DEMO/images/hero3-mobile.webp",
       ]
     : [
-        '/landing-copy/images/hero1.webp',
-        '/landing-copy/images/hero2.webp',
-        '/landing-copy/images/hero3.webp',
+        "/MarOtec-DEMO/images/hero1.webp",
+        "/MarOtec-DEMO/images/hero2.webp",
+        "/MarOtec-DEMO/images/hero3.webp",
       ];
 
   let index = 0;
-  const bg = document.getElementById('hero-bg');
-  const dots = document.querySelectorAll('#slider-dots span');
+  const bg = document.getElementById("hero-bg");
+  const dots = document.querySelectorAll("#slider-dots span");
   let intervalId;
 
   function setImage(i) {
@@ -82,11 +93,11 @@ import Mantenimiento from "../assets/svg/mantenimiento.svg";
   function updateDots(currentIndex) {
     dots.forEach((dot, i) => {
       if (i === currentIndex) {
-        dot.classList.add('bg-[#5372F0]', 'opacity-100');
-        dot.classList.remove('bg-white', 'opacity-50');
+        dot.classList.add("bg-[#5372F0]", "opacity-100");
+        dot.classList.remove("bg-white", "opacity-50");
       } else {
-        dot.classList.remove('bg-[#5372F0]', 'opacity-100');
-        dot.classList.add('bg-white', 'opacity-50');
+        dot.classList.remove("bg-[#5372F0]", "opacity-100");
+        dot.classList.add("bg-white", "opacity-50");
       }
     });
   }
@@ -100,9 +111,9 @@ import Mantenimiento from "../assets/svg/mantenimiento.svg";
 
   // Click handler para los dots
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
+    dot.addEventListener("click", () => {
       setImage(i);
-      clearInterval(intervalId);  
+      clearInterval(intervalId);
       startSlider();
     });
   });

@@ -83,7 +83,7 @@ import Phone from "../assets/svg/phone.svg";
         >
           <a href="#hero">
             <img
-              src="/landing-copy/images/logo.webp"
+              src="/MarOtec-DEMO/images/logo.webp"
               alt="Capacitacion"
               class="h-12"
             />
@@ -99,18 +99,21 @@ import Phone from "../assets/svg/phone.svg";
             </li>
             <li>
               <a class="hover:text-[#5372F0] transition" href="#services"
-                >Servicios</a>
+                >Servicios</a
+              >
             </li>
             <li>
               <a class="hover:text-[#5372F0] transition" href="#about"
-                >Sobre Nosotros</a>
+                >Sobre Nosotros</a
+              >
             </li>
             <li>
               <a class="hover:text-[#5372F0] transition" href="#team">Equipo</a>
             </li>
             <li>
               <a class="hover:text-[#5372F0] transition" href="#contact"
-                >Contacto</a>
+                >Contacto</a
+              >
             </li>
           </ul>
         </nav>
@@ -123,7 +126,11 @@ import Phone from "../assets/svg/phone.svg";
     class="md:hidden fixed top-0 left-0 w-full bg-[#101828] text-white px-4 py-3 flex items-center justify-between z-50"
   >
     <a href="#hero" class="flex items-center gap-2">
-      <img src="/landing-copy/images/logo.webp" alt="Mar otec Logo" class="h-10" />
+      <img
+        src="/MarOtec-DEMO/images/logo.webp"
+        alt="Mar otec Logo"
+        class="h-10"
+      />
       <span class="font-bold text-lg">Mar Otec</span>
     </a>
     <button id="menu-toggle" class="text-white focus:outline-none z-50">
@@ -209,13 +216,11 @@ import Phone from "../assets/svg/phone.svg";
 
     if (!headerTop || !headerBottom) return;
 
-    
     if (currentScroll > 50) {
       (headerTop as HTMLElement).style.transform = "translateY(-100%)";
       (headerBottom as HTMLElement).style.top = "0";
       (headerBottom as HTMLElement).style.position = "fixed";
     } else {
-      
       (headerTop as HTMLElement).style.transform = "translateY(0)";
       (headerBottom as HTMLElement).style.top = "60px";
     }

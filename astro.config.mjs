@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://JqSilva.github.io',
-  base: 'landing-copy',
+  base: 'MarOtec-DEMO',
   vite: {
     plugins: [tailwindcss()]
   },
