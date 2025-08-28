@@ -8,7 +8,7 @@ import Phone from "../assets/svg/phone.svg";
 ---
 
 <header id="hero">
-  <!-- HEADER ESCRITORIO (oculto en móvil) -->
+  <!-- HEADER ESCRITORIO -->
   <div
     class="header-top w-full bg-[#101828] text-white pt-[18px] pb-[55px] transition-all duration-200 hidden md:block"
   >
@@ -118,7 +118,7 @@ import Phone from "../assets/svg/phone.svg";
     </div>
   </div>
 
-  <!-- HEADER MÓVIL (oculto en pantallas medianas+) -->
+  <!-- HEADER CELULAR -->
   <div
     class="md:hidden fixed top-0 left-0 w-full bg-[#101828] text-white px-4 py-3 flex items-center justify-between z-50"
   >
@@ -141,7 +141,7 @@ import Phone from "../assets/svg/phone.svg";
     </button>
   </div>
 
-  <!-- MENÚ HAMBURGUESA (móvil) -->
+  <!-- MENÚ HAMBURGUESA  -->
   <nav
     id="mobile-nav"
     class="fixed top-[64px] left-0 w-full bg-[#101828] text-white px-4 py-4 space-y-3 text-center z-40 opacity-0 scale-y-95 transform transition-all duration-300 ease-in-out pointer-events-none"
@@ -209,13 +209,13 @@ import Phone from "../assets/svg/phone.svg";
 
     if (!headerTop || !headerBottom) return;
 
-    // Si hacemos scroll hacia abajo y pasamos los 100px
+    
     if (currentScroll > 50) {
       (headerTop as HTMLElement).style.transform = "translateY(-100%)";
       (headerBottom as HTMLElement).style.top = "0";
       (headerBottom as HTMLElement).style.position = "fixed";
     } else {
-      // Volvemos a la posición original
+      
       (headerTop as HTMLElement).style.transform = "translateY(0)";
       (headerBottom as HTMLElement).style.top = "60px";
     }
