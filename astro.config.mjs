@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://JqSilva.github.io',
-  base: 'MarOtec-DEMO',
+  site: 'https://mar-otec.com',
   vite: {
     plugins: [tailwindcss()]
   },
