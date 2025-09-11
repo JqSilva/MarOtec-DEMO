@@ -1,51 +1,124 @@
 ---
 import { Image } from 'astro:assets';
-const { titulo, descripcion, modalidad, duracion, imagen, id } = Astro.props;
+const { area, tension, enfoque, resumen, modalidad, horas, imagen, codigo, id } = Astro.props;
+const tituloCorto = `${area} ${tension ? '(' + tension + ')' : ''}`;
 ---
-<div class="service-card">
-  <div class="curso-card bg-white rounded-xl shadow-lg min-h-[300px]" data-id={id}>
-    
+
+<div class="curso-card-wrapper relative w-full max-w-sm h-[420px] [perspective:1000px]">
+  <div class="curso-card relative w-full h-full text-white transition-transform duration-700 [transform-style:preserve-3d] rounded-2xl shadow-lg" data-id={id}>
+
     <!-- Frente -->
-    <div class="card-front absolute w-full h-full backface-hidden">
-      <Image src={imagen} alt={titulo} class="w-full h-full object-cover rounded-xl" format='webp' loading="lazy" />
-      <div class="absolute inset-0 bg-black opacity-60 rounded-xl"></div>
-      <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-white text-center">
-        <h6 class="font-semibold text-2xl mb-4">{titulo}</h6>
-        <button class="btn-curso bg-[#5372F0] text-white py-2 px-4 rounded-lg hover:bg-[#0A256E] transition-all cursor-pointer" data-id={id}>
-          Más Información
+    <div class="card-front absolute inset-0 rounded-2xl overflow-hidden [backface-visibility:hidden]">
+      <Image src={imagen} alt={tituloCorto} class="w-full h-full object-cover" format="webp" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 flex flex-col justify-end">
+        <h3 class="text-xl font-bold mb-3">{tituloCorto}</h3>
+
+        <!-- Chips -->
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-[#5372F0] text-white text-xs font-medium px-2 py-1 rounded-lg">{enfoque}</span>
+          <span class="bg-white/20 text-xs font-medium px-2 py-1 rounded-lg">{horas} h</span>
+          <span class="bg-white/20 text-xs font-medium px-2 py-1 rounded-lg">{modalidad}</span>
+        </div>
+
+        <button 
+          class="btn-curso mt-2 px-4 py-2 bg-[#5372F0] rounded-lg text-sm font-semibold hover:bg-[#0A256E] transition cursor-pointer"
+          data-id={id}>
+          Ver más
         </button>
       </div>
     </div>
 
-    <!-- Parte trasera -->
-    <div class="card-back absolute w-full h-full backface-hidden transform rotate-y-180 flex flex-col justify-between p-6 overflow-y-auto text-center">
-      <div>
-        <div class="mb-4 mt-4">
-          <h6 class="font-semibold text-lg">{titulo}</h6>
-        </div>
-        <div class="mb-4 mt-2">
-          <h6 class="font-semibold text-lg">Descripción</h6>
-          <p class="text-sm">{descripcion}</p>
+    <!-- Dorso -->
+    <div class="card-back absolute inset-0 rounded-2xl bg-gradient-to-b from-[#0b1020] to-[#0b0f1a] p-5 sm:p-6 shadow-2xl transform rotate-y-180 [backface-visibility:hidden]">
+      <!-- Tarjeta interior tipo glass -->
+      <div class="h-full w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-6 flex flex-col">
+        
+        <!-- Contenido centrado -->
+        <div class="flex-1 flex flex-col items-center justify-center text-center">
+          <h3 class="text-[1.25rem] font-extrabold tracking-tight text-white mb-2">
+            {tituloCorto}
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-300/90 mb-4">
+            {resumen}
+          </p>
+
+          <!-- Chips -->
+          <div class="mt-4 flex flex-wrap justify-center gap-2 text-[11px] font-medium">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg ring-1 ring-[#5372F0] bg-[#5372F0]/15 text-[#7f97ff]">
+              <!-- bolt -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="opacity-90"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z"/></svg>
+              {enfoque}
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/8 text-gray-200 ring-1 ring-white/10">
+              <!-- clock -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="opacity-80"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              {horas} horas
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/8 text-gray-200 ring-1 ring-white/10">
+              <!-- building -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="opacity-80"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {modalidad}
+            </span>
+            {codigo && (
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 text-gray-300 ring-1 ring-white/10">
+                <!-- tag -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="opacity-80"><path d="M20.59 13.41l-7.18 7.18a2 2 0 01-2.83 0L3 13.01V4h9.01l7.58 7.58a2 2 0 010 2.83z" stroke="currentColor" stroke-width="2"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>
+                Código: {codigo}
+              </span>
+            )}
+          </div>
         </div>
 
-        <!-- Modalidad y Duración en paralelo -->
-        <div class="flex justify-center gap-12 mb-6 mt-4">
-          <div class="text-center">
-            <h6 class="font-semibold text-lg">Modalidad</h6>
-            <p class="text-sm">{modalidad}</p>
-          </div>
-          <div class="text-center">
-            <h6 class="font-semibold text-lg">Duración</h6>
-            <p class="text-sm">{duracion}</p>
-          </div>
-        </div>
+        <!-- Botón abajo -->
+        <button
+          class="btn-back w-full justify-center mt-6 px-4 py-3 rounded-xl bg-[#586BFF] hover:bg-[#4052f6] text-sm font-semibold text-white shadow-[0_8px_30px_rgba(88,107,255,.35)] transition"
+          data-id={id}
+        >
+          Volver
+        </button>
       </div>
+    </div>
 
-      <!-- Botón -->
-      <button class="btn-back bg-[#5372F0] text-white py-2 px-4 rounded-lg hover:bg-[#0A256E] transition-all" data-id={id}>
-        Volver
-      </button>
+        <!-- Separador sutil -->
+        <div class="mt-5 mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+        <!-- Espaciador flexible para empujar el botón al final -->
+        <div class="flex-1"></div>
+
+        <!-- Botón -->
+        <button
+          class="btn-back w-full justify-center px-4 py-3 rounded-xl bg-[#586BFF] hover:bg-[#4052f6] text-sm font-semibold text-white shadow-[0_8px_30px_rgba(88,107,255,.35)] transition"
+          data-id={id}
+        >
+          Volver
+        </button>
+      </div>
     </div>
 
   </div>
 </div>
+
+<style>
+  .curso-card {
+    transform-style: preserve-3d;
+  }
+  .rotated {
+    transform: rotateY(180deg);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const card = document.querySelector(`.curso-card[data-id="${id}"]`);
+    const btnFront = card?.querySelector(".btn-curso");
+    const btnBack = card?.querySelector(".btn-back");
+
+    btnFront?.addEventListener("click", () => {
+      card.classList.add("rotated");
+    });
+
+    btnBack?.addEventListener("click", () => {
+      card.classList.remove("rotated");
+    });
+  });
+</script>

@@ -1,9 +1,9 @@
 ---
+// src/components/Services.astro
 import Curso from "../components/Curso.astro";
 import { cursos } from "../data/cursos";
 ---
 
-<!-- Sección Capacitaciones -->
 <section id="services" class="py-16 bg-gradient-to-b from-[#f7faff] to-white scroll-mt-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl text-center font-extrabold text-black mb-6">Capacitaciones</h2>
@@ -14,15 +14,10 @@ import { cursos } from "../data/cursos";
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         cursos
-          .filter(curso => curso.tipo === "capacitacion")
-          .map((curso, index) => (
-            <div
-              class="slide-up"
-              data-delay={`${index * 0.15}`}
-              data-start="top 80%"
-              data-duration="0.6"
-            >
-              <Curso {...curso} id={`${index}`} />
+          .filter(c => c.tipo === "capacitacion")
+          .map((c, index) => (
+            <div class="slide-up" data-delay={`${index * 0.15}`} data-start="top 95%" data-duration="0.6">
+              <Curso {...c} id={`${index}`} />
             </div>
           ))
       }
@@ -30,8 +25,7 @@ import { cursos } from "../data/cursos";
   </div>
 </section>
 
-<!-- Sección Certificaciones -->
-<section  class="py-16 bg-gradient-to-b from-[#f3f6ff] to-white scroll-mt-16">
+<section class="py-16 bg-gradient-to-b from-[#f3f6ff] to-white scroll-mt-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl text-center font-extrabold text-black mb-6">Certificaciones</h2>
     <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-10">
@@ -41,15 +35,10 @@ import { cursos } from "../data/cursos";
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         cursos
-          .filter(curso => curso.tipo === "certificacion")
-          .map((curso, index) => (
-            <div
-              class="slide-up "
-              data-delay={`${index * 0.15}`}
-              data-start="top 80%"
-              data-duration="0.6"
-            >
-              <Curso {...curso} id={`cert-${index}`} />
+          .filter(c => c.tipo === "certificacion")
+          .map((c, index) => (
+            <div class="slide-up" data-delay={`${index * 0.15}`} data-start="top 80%" data-duration="0.6">
+              <Curso {...c} id={`cert-${index}`} />
             </div>
           ))
       }
