@@ -107,18 +107,4 @@ const tituloCorto = `${area} ${tension ? '(' + tension + ')' : ''}`;
   }
 </style>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const card = document.querySelector(`.curso-card[data-id="${id}"]`);
-    const btnFront = card?.querySelector(".btn-curso");
-    const btnBack = card?.querySelector(".btn-back");
 
-    btnFront?.addEventListener("click", () => {
-      card.classList.add("rotated");
-    });
-
-    btnBack?.addEventListener("click", () => {
-      card.classList.remove("rotated");
-    });
-  });
-</script>
