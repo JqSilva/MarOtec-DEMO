@@ -16,7 +16,7 @@ import { cursos } from "../data/cursos";
         cursos
           .filter(c => c.tipo === "capacitacion")
           .map((c, index) => (
-            <div class="slide-up" data-delay={`${index * 0.15}`} data-start="top 95%" data-duration="0.6">
+            <div class="slide-up" data-delay={`${index * 0.05}`} data-start="top 95%" data-duration="0.6">
               <Curso {...c} id={`${index}`} />
             </div>
           ))
@@ -37,7 +37,7 @@ import { cursos } from "../data/cursos";
         cursos
           .filter(c => c.tipo === "certificacion")
           .map((c, index) => (
-            <div class="slide-up" data-delay={`${index * 0.15}`} data-start="top 80%" data-duration="0.6">
+            <div class="slide-up" data-delay={`${index * 0.05}`} data-start="top 80%" data-duration="0.6">
               <Curso {...c} id={`cert-${index}`} />
             </div>
           ))
