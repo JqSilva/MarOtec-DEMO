@@ -1,76 +1,104 @@
 ---
 import { Image } from 'astro:assets';
 import saesa from '../assets/images/grupo-saesa.png';
-import transelec from '../assets/images/transelec.png';
+import transelec from '../assets/images/transelec.webp';
 import cge from '../assets/images/cge.png';
 import engie from '../assets/images/engie.png';
+import conelsur from '../assets/images/conelsur.jpg';
+import cget from '../assets/images/cget.png';
 ---
 
-
-<section class="pt-4 text-white body-font bg-[#101828] sm:bg-gradient-to-b sm:from-gray-800 sm:via-gray-800 sm:to-gray-900 min-h-[600px]">
-  <div class="container px-5 py-10 mx-auto">
-    <div class="flex flex-col text-center w-full mb-16">
-      <h2 class="sm:text-4xl text-3xl font-extrabold mb-4">Validación de Empresas</h2>
+<section class="pt-4 text-white body-font bg-[#101828] sm:bg-gradient-to-b sm:from-gray-800 sm:via-gray-800 sm:to-gray-900 min-h-[700px]">
+  <div class="container px-5 py-16 mx-auto max-w-7xl">
+    <!-- Header -->
+    <div class="flex flex-col text-center w-full mb-20">
+      <h2 class="sm:text-4xl text-3xl font-extrabold mb-6">Validación de Empresas</h2>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-400">
         Empresas que confían en nosotros para capacitar a sus trabajadores.
       </p>
     </div>
     
-    <div class="flex flex-wrap justify-center sm:gap-10">
+    <!-- Grid de empresas -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-8 lg:gap-10 xl:gap-12 max-w-5xl mx-auto">
+      
       <!-- Empresa 1 -->
-      <div class="zoom-in w-40 sm:w-48 md:w-56 p-4"
+      <div class="zoom-in group"
            data-start="top 85%"
            data-delay="0.1"
-           data-duration="2"
-      >
+           data-duration="2">
         <a href="https://web.gruposaesa.cl/" target="_blank" rel="noopener noreferrer">
-        <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center hover:scale-102">
-          <Image src={saesa} alt="Grupo Saesa" class="w-16 h-16 sm:w-24 sm:h-24 object-contain mb-3" loading="lazy"/>
-          <p class="text-gray-800 font-medium text-center">Grupo Saesa</p>
-        </div>
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={saesa} alt="Grupo Saesa" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Grupo Saesa</p>
+          </div>
         </a>
       </div>
+
       <!-- Empresa 2 -->
-      <div class="zoom-in w-40 sm:w-48 md:w-56 p-4"
-          data-start="top 85%"
-          data-delay="0.2"
-          data-duration="2"
-      >
+      <div class="zoom-in group"
+           data-start="top 85%"
+           data-delay="0.2"
+           data-duration="2">
         <a href="https://www.transelec.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center hover:scale-102">
-            <Image src={transelec} alt="Transelec" class="w-24 h-24 object-contain mb-3" loading="lazy"/>
-            <p class="text-gray-800 font-medium text-center">Transelec</p>
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={transelec} alt="Transelec" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Transelec</p>
           </div>
         </a>
       </div>
 
       <!-- Empresa 3 -->
-      <div class="zoom-in w-40 sm:w-48 md:w-56 p-4"
-      data-start="top 85%"
-      data-delay="0.3"
-      data-duration="2"
-      >
+      <div class="zoom-in group"
+           data-start="top 85%"
+           data-delay="0.3"
+           data-duration="2">
         <a href="https://www.cge.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center hover:scale-102">
-            <Image src={cge} alt="CGE" class="w-24 h-24 object-contain mb-3" loading="lazy"/>
-            <p class="text-gray-800 font-medium text-center">CGE</p>
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={cge} alt="CGE" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">CGE</p>
           </div>
         </a>
       </div>
 
       <!-- Empresa 4 -->
-      <div class="zoom-in w-40 sm:w-48 md:w-56 p-4"
-      data-start="top 85%"
-      data-delay="0.4"
-      data-duration="2"
-      >
+      <div class="zoom-in group"
+           data-start="top 85%"
+           data-delay="0.4"
+           data-duration="2">
         <a href="https://www.engie.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center hover:scale-102">
-            <Image src={engie} alt="ENGIE" class="w-24 h-24 object-contain mb-3" loading="lazy"/>
-            <p class="text-gray-800 font-medium text-center">ENGIE</p>
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={engie} alt="ENGIE" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">ENGIE</p>
           </div>
         </a>
       </div>
+
+      <!-- Empresa 5 -->
+      <div class="zoom-in group"
+           data-start="top 85%"
+           data-delay="0.5"
+           data-duration="2">
+        <a href="https://www.conelsur.com/" target="_blank" rel="noopener noreferrer">
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={conelsur} alt="Conelsur" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Conelsur</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Empresa 6 -->
+      <div class="zoom-in group"
+           data-start="top 85%"
+           data-delay="0.6"
+           data-duration="2">
+        <a href="https://www.cgetransmision.cl/" target="_blank" rel="noopener noreferrer">
+          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
+            <Image src={cget} alt="CGE Transmisión" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
+            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">CGE Transmisión</p>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>

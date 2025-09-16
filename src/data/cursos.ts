@@ -1,4 +1,4 @@
-import imagen_servicio from '../assets/images/servicio.jpg';
+import imagen_servicio from '../assets/images/servicio.webp';
 
 export const cursos = [
   // === CAPACITACIONES ===
