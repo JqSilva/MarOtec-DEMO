@@ -1,142 +1,158 @@
 <section
   id="contact"
-  class="scroll-mt-30 flex flex-col lg:flex-row justify-between bg-white dark:bg-gray-900 min-h-[859px] px-4 sm:px-6 lg:px-50 py-8 lg:py-16 gap-10"
+  class="scroll-mt-30 bg-white dark:bg-gray-900 py-16 mb-8"
 >
-  <!-- Contacto: izquierda -->
-  <div
-    class="slide-up w-full lg:w-1/2"
-    data-start="top 85%"
-    data-delay="0"
-    data-duration="0.8"
-  >
-    <h2
-      class="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white"
-    >
-      Contáctanos
-    </h2>
-    <p
-      class="mb-8 lg:mb-16 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl"
-    >
-      Si te interesa algún curso o si tienes alguna duda, ¡no dudes en
-      contactarnos!
-    </p>
-    <form
-      action="https://api.web3forms.com/submit"
-      method="POST"
-      class="space-y-8 w-full"
-    >
-      <input
-        type="hidden"
-        name="access_key"
-        value="6384ec6c-ba9e-4324-ad5c-6d69bce00509"
-      />
-      <input
-        type="hidden"
-        name="subject"
-        value="Nuevo mensaje de contacto desde Mar-Otec"
-      />
-      <input type="hidden" name="from_name" value="Mar-otec Web" />
-      <div>
-        <label
-          for="name"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >Nombre</label
-        >
-        <input
-          type="text"
-          id="name"
-          name="nombre"
-          class="w-full p-2.5 text-sm rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          placeholder="Tu Nombre"
-          required
-        />
-      </div>
-      <div>
-        <label
-          for="subject"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >Email</label
-        >
-        <input
-          type="text"
-          id="subject"
-          name="Correo"
-          class="w-full p-3 text-sm rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          placeholder="Tu Correo"
-          required
-        />
-      </div>
-
-      <div>
-        <label
-          for="subject"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >Teléfono</label
-        >
-        <input
-          type="text"
-          id="phone"
-          name="teléfono"
-          class="w-full p-3 text-sm rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          placeholder="+569 12345678"
-          required
-        />
-      </div>
-
-      <div>
-        <label
-          for="message"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >Mensaje</label
-        >
-        <textarea
-          id="message"
-          name="Mensaje"
-          rows="6"
-          class="w-full p-2.5 text-sm rounded-lg border bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          placeholder="Tu mensaje"></textarea>
-      </div>
-      <button
-        type="submit"
-        class="py-3 px-5 text-sm font-medium text-white rounded-lg bg-[#5372F0] hover:bg-[#0A256E] focus:ring-4 focus:outline-none focus:ring-primary-300 cursor-pointer"
-        >Enviar Mensaje</button
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-10 lg:gap-16">
+      <!-- Contacto: izquierda -->
+      <div
+        class="slide-up w-full lg:w-1/2"
+        data-start="top 85%"
+        data-delay="0"
+        data-duration="0.8"
       >
-      <input
-        type="hidden"
-        name="redirect"
-        value="https://mar-otec.com/gracias/"
-      />
-      <input
-        type="checkbox"
-        name="botcheck"
-        class="hidden"
-        style="display: none;"
-      />
-      <div class="h-captcha" data-captcha="true"></div>
-    </form>
-  </div>
+        <h2
+          class="mb-4 text-4xl tracking-tight font-extrabold text-left text-gray-900 dark:text-white"
+        >
+          Contáctanos
+        </h2>
+        <p
+          class="mb-8 lg:mb-12 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl"
+        >
+          Si te interesa algún curso o si tienes alguna duda, ¡no dudes en
+          contactarnos!
+        </p>
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="space-y-6 w-full"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="6384ec6c-ba9e-4324-ad5c-6d69bce00509"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="Nuevo mensaje de contacto desde Mar-Otec"
+          />
+          <input type="hidden" name="from_name" value="Mar-otec Web" />
+          
+          <!-- Grid para Nombre y Teléfono -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >Nombre *</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="nombre"
+                class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+            
+            <div>
+              <label
+                for="phone"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >Teléfono *</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="teléfono"
+                class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300"
+                placeholder="+569 1234 5678"
+                required
+              />
+            </div>
+          </div>
 
-  <!-- Mapa: derecha -->
-  <div
-    class="zoom-in w-full lg:w-1/2 flex justify-center lg:justify-center items-center"
-    data-start="top 85%"
-    data-delay="0.2"
-    data-duration="0.8"
-  >
-    <div
-      class="w-full max-w-[500px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-lg shadow-lg overflow-hidden border border-gray-300 dark:border-gray-700"
-    >
-      <iframe
-        title="Ubicación Mar Otec – OTEC en Chile especializada en trabajos con tensión"
-        loading="lazy"
-        src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d416994.6132277613!2d-71.486825!3d-35.261967!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDE1JzQyLjgiUyA3McKwMjknMTIuNSJX!5e0!3m2!1ses!2scl!4v1757963361853!5m2!1ses!2scl"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade"
+          <div>
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Email *</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="Correo"
+              class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              for="message"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Mensaje *</label
+            >
+            <textarea
+              id="message"
+              name="Mensaje"
+              rows="5"
+              class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300 resize-none"
+              placeholder="Cuéntanos sobre tu consulta o el curso que te interesa..."
+              required></textarea>
+          </div>
+          
+          <button
+            type="submit"
+            class="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 py-3 px-8 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-[#5372F0] to-[#4361EE] hover:from-[#4361EE] hover:to-[#3F37C9] focus:ring-4 focus:outline-none focus:ring-[#5372F0]/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform cursor-pointer"
+          >
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            Enviar Mensaje
+          </button>
+          
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://mar-otec.com/gracias/"
+          />
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+          />
+          <div class="h-captcha" data-captcha="true"></div>
+        </form>
+      </div>
+
+      <!-- Mapa: derecha -->
+      <div
+        class="zoom-in w-full lg:w-1/2 flex justify-center items-center"
+        data-start="top 85%"
+        data-delay="0.2"
+        data-duration="0.8"
       >
-      </iframe>
+        <div
+          class="w-full h-[350px] sm:h-[450px] lg:h-[600px] rounded-xl shadow-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-600 hover:shadow-3xl transition-shadow duration-300"
+        >
+          <iframe
+            title="Ubicación Mar Otec – OTEC en Chile especializada en trabajos con tensión"
+            loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d416994.6132277613!2d-71.486825!3d-35.261967!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDE1JzQyLjgiUyA3McKwMjknMTIuNSJX!5e0!3m2!1ses!2scl!4v1757963361853!5m2!1ses!2scl"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
