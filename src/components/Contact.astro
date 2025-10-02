@@ -23,6 +23,7 @@
           action="https://api.web3forms.com/submit"
           method="POST"
           class="space-y-6 w-full"
+          id="contact-form"
         >
           <input
             type="hidden"
@@ -84,6 +85,22 @@
               class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300"
               placeholder="tu@email.com"
               required
+            />
+          </div>
+
+          <!-- NUEVO: Campo de curso de interés -->
+          <div>
+            <label
+              for="curso"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Curso de interés <span class="text-gray-400 text-xs">(opcional)</span></label
+            >
+            <input
+              type="text"
+              id="curso"
+              name="curso_interes"
+              class="w-full p-3 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-[#5372F0] focus:border-[#5372F0] transition-all duration-300"
+              placeholder="Ej: Líneas Energizadas (MT) (CAP-004-TcT-MT-SUP-01)"
             />
           </div>
 
@@ -153,3 +170,71 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Función para obtener parámetros de la URL
+  function getUrlParameter(name: string): string | null {
+    // Primero intentar obtener de window.location.hash si hay parámetros después del #
+    const hash = window.location.hash;
+    if (hash.includes('?')) {
+      const params = hash.split('?')[1];
+      const urlParams = new URLSearchParams(params);
+      const value = urlParams.get(name);
+      if (value) {
+        return value;
+      }
+    }
+    
+    // Si no está en el hash, buscar en la URL normal
+    const urlParams = new URLSearchParams(window.location.search);
+    const value = urlParams.get(name);
+    if (value) {
+    }
+    return value;
+  }
+
+  // Rellenar el campo de curso si viene en la URL
+  document.addEventListener('DOMContentLoaded', () => {
+    const cursoParam = getUrlParameter('curso');
+    const cursoInput = document.getElementById('curso') as HTMLInputElement;
+    
+    console.log('Parámetro curso:', cursoParam);
+    console.log('Input encontrado:', cursoInput);
+    
+    if (cursoParam && cursoInput) {
+      const cursoDecoded = decodeURIComponent(cursoParam);
+      console.log('Curso decodificado:', cursoDecoded);
+      cursoInput.value = cursoDecoded;
+      
+      // Destacar el campo visualmente
+      cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
+      
+      // Scroll suave hacia el formulario
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+
+  // También escuchar clics en los botones de las cards (por si no usan el href)
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const btn = target.closest('.solicitar-info-btn');
+    
+    if (btn) {
+      const nombreCurso = (btn as HTMLElement).dataset.curso;
+      console.log('Botón clickeado, curso:', nombreCurso);
+      const cursoInput = document.getElementById('curso') as HTMLInputElement;
+      
+      if (nombreCurso && cursoInput) {
+        // Esperar a que se haga scroll
+        setTimeout(() => {
+          cursoInput.value = nombreCurso;
+          cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
+          console.log('Campo curso rellenado con:', nombreCurso);
+        }, 500);
+      }
+    }
+  });
+</script>
