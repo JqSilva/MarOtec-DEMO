@@ -4,7 +4,6 @@
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-10 lg:gap-16">
-      <!-- Contacto: izquierda -->
       <div
         class="slide-up w-full lg:w-1/2"
         data-start="top 85%"
@@ -37,7 +36,6 @@
           />
           <input type="hidden" name="from_name" value="Mar-otec Web" />
           
-          <!-- Grid para Nombre y Teléfono -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label
@@ -88,7 +86,6 @@
             />
           </div>
 
-          <!-- NUEVO: Campo de curso de interés -->
           <div>
             <label
               for="curso"
@@ -144,7 +141,6 @@
         </form>
       </div>
 
-      <!-- Mapa: derecha -->
       <div
         class="zoom-in w-full lg:w-1/2 flex justify-center items-center"
         data-start="top 85%"
@@ -172,68 +168,17 @@
 </section>
 
 <script>
-  // Función para obtener parámetros de la URL
-  function getUrlParameter(name: string): string | null {
-    // Primero intentar obtener de window.location.hash si hay parámetros después del #
-    const hash = window.location.hash;
-    if (hash.includes('?')) {
-      const params = hash.split('?')[1];
-      const urlParams = new URLSearchParams(params);
-      const value = urlParams.get(name);
-      if (value) {
-        return value;
-      }
-    }
-    
-    // Si no está en el hash, buscar en la URL normal
-    const urlParams = new URLSearchParams(window.location.search);
-    const value = urlParams.get(name);
-    if (value) {
-    }
-    return value;
-  }
-
-  // Rellenar el campo de curso si viene en la URL
-  document.addEventListener('DOMContentLoaded', () => {
-    const cursoParam = getUrlParameter('curso');
-    const cursoInput = document.getElementById('curso') as HTMLInputElement;
-    
-    console.log('Parámetro curso:', cursoParam);
-    console.log('Input encontrado:', cursoInput);
-    
-    if (cursoParam && cursoInput) {
-      const cursoDecoded = decodeURIComponent(cursoParam);
-      console.log('Curso decodificado:', cursoDecoded);
-      cursoInput.value = cursoDecoded;
-      
-      // Destacar el campo visualmente
-      cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
-      
-      // Scroll suave hacia el formulario
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
-  });
-
-  // También escuchar clics en los botones de las cards (por si no usan el href)
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     const btn = target.closest('.solicitar-info-btn');
     
     if (btn) {
       const nombreCurso = (btn as HTMLElement).dataset.curso;
-      console.log('Botón clickeado, curso:', nombreCurso);
       const cursoInput = document.getElementById('curso') as HTMLInputElement;
       
-      if (nombreCurso && cursoInput) {
-        // Esperar a que se haga scroll
-        setTimeout(() => {
-          cursoInput.value = nombreCurso;
-          cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
-          console.log('Campo curso rellenado con:', nombreCurso);
-        }, 500);
+      if (cursoInput && nombreCurso) {
+        cursoInput.value = nombreCurso;
+        cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
       }
     }
   });
