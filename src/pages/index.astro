@@ -88,5 +88,38 @@ console.log("Gsap VERSION:", gsap.version )
       })
     })
   })
+
+
+  // Pausar GSAP cuando el modal de video está abierto
+document.addEventListener('DOMContentLoaded', () => {
+  const videoModal = document.getElementById('video-modal');
+  
+  if (videoModal && typeof ScrollTrigger !== 'undefined') {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isModalOpen = !videoModal.classList.contains('hidden');
+          
+          if (isModalOpen) {
+            console.log('🎬 Modal abierto - Pausando GSAP');
+            // Deshabilitar TODAS las animaciones GSAP
+            ScrollTrigger.getAll().forEach(st => st.disable());
+            gsap.globalTimeline.pause();
+          } else {
+            console.log('✅ Modal cerrado - Reactivando GSAP');
+            // Reactivar animaciones
+            ScrollTrigger.getAll().forEach(st => st.enable());
+            gsap.globalTimeline.resume();
+          }
+        }
+      });
+    });
+    
+    observer.observe(videoModal, { 
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+});
 </script>
 

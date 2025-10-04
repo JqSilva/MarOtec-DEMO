@@ -1,7 +1,5 @@
 ---
-
 import Rating from './Rating.astro';
-
 
 const testimonios = [
   {
@@ -12,54 +10,16 @@ const testimonios = [
     color: "from-blue-500 to-blue-600",
     colorEmpresa: "text-blue-400",
     rating: 5,
-    texto: "Agradecemos a Mar Otec por el curso Líneas Energizadas 23kV. Carlos Vives demostró conocimiento técnico y las prácticas fueron acordes a nuestro trabajo diario. Logramos conocimiento para desarrollar nuestro trabajo verificando aspectos técnicos, de seguridad y formalidad.",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", 
-    hasVideo: true
-  },
-  {
-    nombre: "Ignacio Rojas",
-    cargo: "Especialista Lineas Energizadas",
-    empresa: "CGE",
-    iniciales: "IR",
-    color: "from-blue-500 to-blue-600",
-    colorEmpresa: "text-blue-400",
-    rating: 5,
-    texto: "Agradecemos a Mar Otec por el curso Líneas Energizadas 23kV. Carlos Vives demostró conocimiento técnico y las prácticas fueron acordes a nuestro trabajo diario. Logramos conocimiento para desarrollar nuestro trabajo verificando aspectos técnicos, de seguridad y formalidad.",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", 
-    hasVideo: true
-  },
-  {
-    nombre: "Ignacio Rojas",
-    cargo: "Especialista Lineas Energizadas",
-    empresa: "CGE",
-    iniciales: "IR",
-    color: "from-blue-500 to-blue-600",
-    colorEmpresa: "text-blue-400",
-    rating: 5,
-    texto: "Agradecemos a Mar Otec por el curso Líneas Energizadas 23kV. Carlos Vives demostró conocimiento técnico y las prácticas fueron acordes a nuestro trabajo diario. Logramos conocimiento para desarrollar nuestro trabajo verificando aspectos técnicos, de seguridad y formalidad.",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", 
-    hasVideo: true
-  },
-  {
-    nombre: "Ignacio Rojas",
-    cargo: "Especialista Lineas Energizadas",
-    empresa: "CGE",
-    iniciales: "IR",
-    color: "from-blue-500 to-blue-600",
-    colorEmpresa: "text-blue-400",
-    rating: 5,
-    texto: "Agradecemos a Mar Otec por el curso Líneas Energizadas 23kV. Carlos Vives demostró conocimiento técnico y las prácticas fueron acordes a nuestro trabajo diario. Logramos conocimiento para desarrollar nuestro trabajo verificando aspectos técnicos, de seguridad y formalidad.",
-    videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", 
+    texto: "Agradecemos a Mar Otec por el curso Líneas Energizadas 23kV. Carlos Vives demostró conocimiento técnico y las prácticas fueron acordes a nuestro trabajo diario.",
+    videoId: "35NA47-Van8",
     hasVideo: true
   }
-  
 ];
 ---
 
-<section id="testimonials" class="py-20 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 scroll-mt-20">
+<section id="testimonials" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     
-    <!-- Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl font-extrabold text-white mb-4">Testimonios</h2>
       <div class="w-20 h-1 bg-blue-500 rounded mx-auto mb-4"></div>
@@ -68,7 +28,6 @@ const testimonios = [
       </p>
     </div>
 
-    <!-- Grid de Testimonios -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
       {testimonios.map((testimonio, index) => (
@@ -78,7 +37,6 @@ const testimonios = [
           data-delay={index * 0.1}
           data-duration="0.6"
         >
-          {/* Badge de video si tiene */}
           {testimonio.hasVideo && (
             <div class="absolute top-4 right-4">
               <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-medium">
@@ -109,12 +67,14 @@ const testimonios = [
             {testimonio.texto}
           </p>
 
-          {/* Botón para ver video */}
           {testimonio.hasVideo && (
             <button
-              class="video-btn mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg transition-all duration-300 hover:scale-105 group cursor-pointer"
-              data-video={testimonio.videoUrl}
+              class="video-btn mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg cursor-pointer"
+              data-video-id={testimonio.videoId}
             >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
+              </svg>
               Ver testimonio en video
             </button>
           )}
@@ -123,7 +83,6 @@ const testimonios = [
 
     </div>
 
-    <!-- CTA -->
     <div class="text-center mt-16">
       <p class="text-gray-300 text-lg mb-6">
         ¿Quieres ser parte de nuestras historias de éxito?
@@ -137,80 +96,124 @@ const testimonios = [
     </div>
   </div>
 
-  <!-- Modal de Video (oculto por defecto) -->
-  <div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="relative w-full max-w-4xl bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+  <div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4">
+    <div class="relative w-full max-w-sm md:max-w-md bg-gray-900 rounded-xl overflow-hidden">
       <button
         id="close-modal"
-        class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+        class="absolute top-2 right-2 z-10 w-8 h-8 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white rounded-full"
         aria-label="Cerrar video"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
       
-      <!-- Contenedor del iframe con aspect ratio 16:9 -->
-      <div class="relative pt-[56.25%]">
-        <iframe
-          id="video-iframe"
-          class="absolute inset-0 w-full h-full"
-          src=""
-          title="Video testimonio"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
+      <div id="video-container" class="relative w-full" style="padding-top: 177.78%;"></div>
     </div>
   </div>
 </section>
 
+<style>
+  body.modal-open {
+    overflow: hidden;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('video-modal');
-    const iframe = document.getElementById('video-iframe') as HTMLIFrameElement;
+    const videoContainer = document.getElementById('video-container');
     const closeBtn = document.getElementById('close-modal');
     const videoButtons = document.querySelectorAll('.video-btn');
+    
+    let currentIframe = null;
 
-    // Abrir modal
+    function createIframe(videoId) {
+      const iframe = document.createElement('iframe');
+      iframe.className = 'absolute inset-0 w-full h-full';
+      iframe.width = '315';
+      iframe.height = '560';
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.title = 'YouTube video player';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      
+      return iframe;
+    }
+
     videoButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        const videoUrl = (btn as HTMLElement).dataset.video;
-        if (videoUrl) {
-          // Agregar autoplay al URL
-          const urlWithAutoplay = videoUrl.includes('?') 
-            ? `${videoUrl}&autoplay=1` 
-            : `${videoUrl}?autoplay=1`;
+        const videoId = (btn as HTMLElement).dataset.videoId;
+        
+        if (videoId && videoContainer) {
+          if (typeof gsap !== 'undefined') {
+            gsap.globalTimeline.pause();
+          }
           
-          iframe.src = urlWithAutoplay;
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(st => st.disable());
+          }
+          
+          const mapsIframe = document.getElementById('maps-iframe');
+          if (mapsIframe) {
+            (mapsIframe as HTMLElement).style.display = 'none';
+          }
+          
+          document.body.style.animation = 'none';
+          
+          currentIframe = createIframe(videoId);
+          videoContainer.appendChild(currentIframe);
+          
           modal?.classList.remove('hidden');
           modal?.classList.add('flex');
-          document.body.style.overflow = 'hidden'; // Prevenir scroll
+          document.body.classList.add('modal-open');
         }
       });
     });
 
-    // Cerrar modal
     const closeModal = () => {
-      iframe.src = ''; // Detener video
+      if (currentIframe && videoContainer) {
+        videoContainer.removeChild(currentIframe);
+        currentIframe = null;
+      }
+      
       modal?.classList.add('hidden');
       modal?.classList.remove('flex');
-      document.body.style.overflow = ''; // Restaurar scroll
+      document.body.classList.remove('modal-open');
+      
+      if (typeof gsap !== 'undefined') {
+        gsap.globalTimeline.resume();
+      }
+      
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.getAll().forEach(st => st.enable());
+      }
+      
+      const mapsIframe = document.getElementById('maps-iframe');
+      if (mapsIframe) {
+        (mapsIframe as HTMLElement).style.display = 'block';
+      }
+      
+      document.body.style.animation = '';
     };
 
     closeBtn?.addEventListener('click', closeModal);
 
-    // Cerrar con ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
         closeModal();
       }
     });
 
-    // Cerrar al hacer click fuera del video
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener('beforeunload', () => {
+      if (currentIframe) {
         closeModal();
       }
     });

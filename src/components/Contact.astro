@@ -183,3 +183,32 @@
     }
   });
 </script>
+
+
+<script>
+  // Pausar Google Maps cuando el modal de video está abierto
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapsIframe = document.getElementById('maps-iframe');
+    const videoModal = document.getElementById('video-modal');
+    
+    if (mapsIframe && videoModal) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class') {
+            const isModalOpen = !videoModal.classList.contains('hidden');
+            
+            if (isModalOpen) {
+              // Ocultar Maps cuando el video está abierto
+              mapsIframe.style.visibility = 'hidden';
+            } else {
+              // Mostrar Maps cuando el video se cierra
+              mapsIframe.style.visibility = 'visible';
+            }
+          }
+        });
+      });
+      
+      observer.observe(videoModal, { attributes: true });
+    }
+  });
+</script>
