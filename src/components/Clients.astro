@@ -1,104 +1,110 @@
 ---
 import { Image } from 'astro:assets';
-import saesa from '../assets/images/grupo-saesa.png';
-import transelec from '../assets/images/transelec.webp';
-import cge from '../assets/images/cge.png';
-import engie from '../assets/images/engie.png';
-import conelsur from '../assets/images/conelsur.jpg';
-import cget from '../assets/images/cget.png';
+import { empresas } from '../data/empresas';
 ---
 
-<section class="pt-4 text-white body-font bg-[#101828] sm:bg-gradient-to-b sm:from-gray-800 sm:via-gray-800 sm:to-gray-900 min-h-[700px]">
-  <div class="container px-5 py-16 mx-auto max-w-7xl">
-    <!-- Header -->
-    <div class="flex flex-col text-center w-full mb-20">
-      <h2 class="sm:text-4xl text-3xl font-extrabold mb-6">Validación de Empresas</h2>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-400">
-        Empresas que confían en nosotros para capacitar a sus trabajadores.
+<section class="py-20 text-white bg-gradient-to-b from-[#101828] via-gray-800 to-gray-900 overflow-hidden">
+  <div class="container px-5 mx-auto max-w-7xl">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h2 class="text-4xl font-extrabold mb-4">Empresas que Confían en Nosotros</h2>
+      <p class="mx-auto leading-relaxed text-gray-400 max-w-2xl">
+        Líderes del sector energético que eligen Mar Otec para capacitar a sus equipos
       </p>
     </div>
-    
-    <!-- Grid de empresas -->
-    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-8 lg:gap-10 xl:gap-12 max-w-5xl mx-auto">
-      
-      <!-- Empresa 1 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.1"
-           data-duration="2">
-        <a href="https://web.gruposaesa.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={saesa} alt="Grupo Saesa" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Grupo Saesa</p>
-          </div>
-        </a>
-      </div>
 
-      <!-- Empresa 2 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.2"
-           data-duration="2">
-        <a href="https://www.transelec.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={transelec} alt="Transelec" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Transelec</p>
+    <!-- Marquesina superior -->
+    <div class="marquee-container mb-8">
+      <div class="marquee">
+        {[...empresas, ...empresas].map((empresa) => (
+          <div class="marquee-item">
+            <a href={empresa.url} target="_blank" rel="noopener noreferrer" title={empresa.nombre}>
+              <div class="bg-white backdrop-blur-md border border-white/30 rounded-xl p-3 md:p-4 hover:bg-white transition-all duration-300 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center shadow-lg">
+                <Image 
+                  src={empresa.logo} 
+                  alt={empresa.nombre}
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </a>
           </div>
-        </a>
+        ))}
       </div>
+    </div>
 
-      <!-- Empresa 3 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.3"
-           data-duration="2">
-        <a href="https://www.cge.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={cge} alt="CGE" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">CGE</p>
+    <!-- Marquesina inferior (dirección inversa) -->
+    <div class="marquee-container">
+      <div class="marquee marquee-reverse">
+        {[...empresas, ...empresas].reverse().map((empresa) => (
+          <div class="marquee-item">
+            <a href={empresa.url} target="_blank" rel="noopener noreferrer" title={empresa.nombre}>
+              <div class="bg-white backdrop-blur-md border border-white/30 rounded-xl p-3 md:p-4 hover:bg-white transition-all duration-300 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center shadow-lg">
+                <Image 
+                  src={empresa.logo} 
+                  alt={empresa.nombre}
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </a>
           </div>
-        </a>
+        ))}
       </div>
-
-      <!-- Empresa 4 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.4"
-           data-duration="2">
-        <a href="https://www.engie.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={engie} alt="ENGIE" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">ENGIE</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Empresa 5 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.5"
-           data-duration="2">
-        <a href="https://www.conelsur.com/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={conelsur} alt="Conelsur" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">Conelsur</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Empresa 6 -->
-      <div class="zoom-in group"
-           data-start="top 85%"
-           data-delay="0.6"
-           data-duration="2">
-        <a href="https://www.cgetransmision.cl/" target="_blank" rel="noopener noreferrer">
-          <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl group-hover:bg-gray-50 min-h-[140px] sm:min-h-[180px]">
-            <Image src={cget} alt="CGE Transmisión" class="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain mb-2 sm:mb-4 transition-transform duration-300 group-hover:scale-110" loading="lazy"/>
-            <p class="text-gray-800 font-semibold text-center text-sm sm:text-lg">CGE Transmisión</p>
-          </div>
-        </a>
-      </div>
-
     </div>
   </div>
 </section>
+
+<style>
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+  }
+
+  .marquee-reverse {
+    animation: scroll-reverse 40s linear infinite;
+  }
+
+  /* Móvil: animación más rápida y logos más grandes */
+  @media (max-width: 768px) {
+    .marquee {
+      gap: 1.5rem;
+      animation: scroll 20s linear infinite;
+    }
+    
+    .marquee-reverse {
+      animation: scroll-reverse 20s linear infinite;
+    }
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+</style>
