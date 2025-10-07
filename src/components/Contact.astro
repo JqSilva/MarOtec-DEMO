@@ -1,9 +1,8 @@
-<section
-  id="contact"
-  class="scroll-mt-30 bg-white dark:bg-gray-900 py-16 mb-8"
->
+<section id="contact" class="-30 bg-white dark:bg-gray-900 py-16 mb-8">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-10 lg:gap-16">
+    <div
+      class="flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-10 lg:gap-16"
+    >
       <div
         class="slide-up w-full lg:w-1/2"
         data-start="top 85%"
@@ -15,8 +14,11 @@
         >
           Contáctanos
         </h2>
-        <p class="mb-8 lg:mb-12 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl">
-          ¿Necesitas capacitaciones TcT o certificación personal especialista? Consulta por nuestros cursos en instalaciones energizadas.
+        <p
+          class="mb-8 lg:mb-12 font-light text-left text-gray-500 dark:text-gray-400 sm:text-xl"
+        >
+          ¿Necesitas capacitaciones TcT o certificación personal especialista?
+          Consulta por nuestros cursos en instalaciones energizadas.
         </p>
         <form
           action="https://api.web3forms.com/submit"
@@ -35,7 +37,7 @@
             value="Nuevo mensaje de contacto desde Mar-Otec"
           />
           <input type="hidden" name="from_name" value="Mar-otec Web" />
-          
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label
@@ -52,7 +54,7 @@
                 required
               />
             </div>
-            
+
             <div>
               <label
                 for="phone"
@@ -90,7 +92,9 @@
             <label
               for="curso"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Curso de interés <span class="text-gray-400 text-xs">(opcional)</span></label
+              >Curso de interés <span class="text-gray-400 text-xs"
+                >(opcional)</span
+              ></label
             >
             <input
               type="text"
@@ -115,17 +119,26 @@
               placeholder="Cuéntanos sobre tu consulta o el curso que te interesa..."
               required></textarea>
           </div>
-          
+
           <button
             type="submit"
             class="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 py-3 px-8 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-[#5372F0] to-[#4361EE] hover:from-[#4361EE] hover:to-[#3F37C9] focus:ring-4 focus:outline-none focus:ring-[#5372F0]/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform cursor-pointer"
           >
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            <svg
+              class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
             </svg>
             Enviar Mensaje
           </button>
-          
+
           <input
             type="hidden"
             name="redirect"
@@ -168,46 +181,50 @@
 </section>
 
 <script>
-  document.addEventListener('click', (e) => {
+  document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
-    const btn = target.closest('.solicitar-info-btn');
-    
+    const btn = target.closest(".solicitar-info-btn");
+
     if (btn) {
       const nombreCurso = (btn as HTMLElement).dataset.curso;
-      const cursoInput = document.getElementById('curso') as HTMLInputElement;
-      
+      const cursoInput = document.getElementById("curso") as HTMLInputElement;
+
       if (cursoInput && nombreCurso) {
         cursoInput.value = nombreCurso;
-        cursoInput.classList.add('ring-2', 'ring-[#5372F0]', 'bg-blue-50', 'dark:bg-blue-900/20');
+        cursoInput.classList.add(
+          "ring-2",
+          "ring-[#5372F0]",
+          "bg-blue-50",
+          "dark:bg-blue-900/20",
+        );
       }
     }
   });
 </script>
 
-
 <script>
   // Pausar Google Maps cuando el modal de video está abierto
-  document.addEventListener('DOMContentLoaded', () => {
-    const mapsIframe = document.getElementById('maps-iframe');
-    const videoModal = document.getElementById('video-modal');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const mapsIframe = document.getElementById("maps-iframe");
+    const videoModal = document.getElementById("video-modal");
+
     if (mapsIframe && videoModal) {
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.attributeName === 'class') {
-            const isModalOpen = !videoModal.classList.contains('hidden');
-            
+          if (mutation.attributeName === "class") {
+            const isModalOpen = !videoModal.classList.contains("hidden");
+
             if (isModalOpen) {
               // Ocultar Maps cuando el video está abierto
-              mapsIframe.style.visibility = 'hidden';
+              mapsIframe.style.visibility = "hidden";
             } else {
               // Mostrar Maps cuando el video se cierra
-              mapsIframe.style.visibility = 'visible';
+              mapsIframe.style.visibility = "visible";
             }
           }
         });
       });
-      
+
       observer.observe(videoModal, { attributes: true });
     }
   });

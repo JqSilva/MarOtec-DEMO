@@ -1,3 +1,4 @@
+/* src/styles/global.css */
 @import "tailwindcss";
 
 .hero-clip {
@@ -7,13 +8,52 @@
 @media (max-width: 500px) {
   .hero-clip {
     clip-path: none;
-
-
   }
 }
 
 @media (max-width: 500px) {
   #hero-bg {
     background-position: center 60% !important;
+  }
+}
+
+
+
+/* Móvil: Header fijo de 64px de alto */
+@media (max-width: 767px) {
+  section[id] {
+    scroll-margin-top: 40px; 
+  }
+  
+  /* Ajuste especial para Hero (no necesita margen) */
+  #hero {
+    scroll-margin-top: 0;
+  }
+}
+
+/* Tablet y Desktop: Header más grande */
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 50px; 
+  }
+  
+  /* Ajuste especial para Hero */
+  #hero {
+    scroll-margin-top: 0;
+  }
+  
+  #about {
+    scroll-margin-top: 180px;
+  }
+}
+
+/* Desktop grande: Ajuste fino */
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 60px;
+  }
+  
+  #about {
+    scroll-margin-top: 120px;
   }
 }

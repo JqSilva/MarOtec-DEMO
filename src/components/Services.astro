@@ -4,19 +4,27 @@ import Curso from "../components/Curso.astro";
 import { cursos } from "../data/cursos";
 ---
 
-<section id="services" class="py-18 bg-slate-200 scroll-mt-16">
+<section id="services" class="py-18 bg-slate-200 -16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h2 class="sm:text-4xl text-3xl font-extrabold text-center text-black mb-6">Capacitaciones TcT</h2>
+    <h2 class="sm:text-4xl text-3xl font-extrabold text-center text-black mb-6">
+      Capacitaciones TcT
+    </h2>
     <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-10">
-      Capacitaciones TcT en Media Tensión (MT) y Alta Tensión (AT). <br> Supervisión, lavado de aislación, rescate en altura, mantenimiento instalaciones energizadas.
+      Capacitaciones TcT en Media Tensión (MT) y Alta Tensión (AT). <br /> Supervisión,
+      lavado de aislación, rescate en altura, mantenimiento instalaciones energizadas.
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         cursos
-          .filter(c => c.tipo === "capacitacion")
+          .filter((c) => c.tipo === "capacitacion")
           .map((c, index) => (
-            <div class="slide-up" data-delay={`${index * 0.05}`} data-start="top 95%" data-duration="0.6">
+            <div
+              class="slide-up"
+              data-delay={`${index * 0.05}`}
+              data-start="top 95%"
+              data-duration="0.6"
+            >
               <Curso {...c} id={`${index}`} />
             </div>
           ))
@@ -25,19 +33,27 @@ import { cursos } from "../data/cursos";
   </div>
 </section>
 
-<section class="py-18 bg-blue-100 scroll-mt-16">
+<section class="py-18 bg-blue-100 -16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h2 class="sm:text-4xl text-3xl font-extrabold text-center text-black mb-6">Certificación Personal Especialista</h2>
+    <h2 class="sm:text-4xl text-3xl font-extrabold text-center text-black mb-6">
+      Certificación Personal Especialista
+    </h2>
     <p class="text-center text-gray-600 text-lg max-w-4xl mx-auto mb-10">
-      Certificación personal especialista TcT para ingenieros e inspectores. <br>Acreditaciones hasta 36 kV en instalaciones energizadas MT.
+      Certificación personal especialista TcT para ingenieros e inspectores. <br
+      />Acreditaciones hasta 36 kV en instalaciones energizadas MT.
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         cursos
-          .filter(c => c.tipo === "certificacion")
+          .filter((c) => c.tipo === "certificacion")
           .map((c, index) => (
-            <div class="slide-up" data-delay={`${index * 0.05}`} data-start="top 80%" data-duration="0.6">
+            <div
+              class="slide-up"
+              data-delay={`${index * 0.05}`}
+              data-start="top 80%"
+              data-duration="0.6"
+            >
               <Curso {...c} id={`cert-${index}`} />
             </div>
           ))
@@ -57,13 +73,14 @@ import { cursos } from "../data/cursos";
   .curso-card {
     width: 100%;
     max-width: 384px;
-    min-height: 300px; 
+    min-height: 300px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
   }
 
-  .card-front, .card-back {
+  .card-front,
+  .card-back {
     position: absolute;
     top: 0;
     left: 0;
@@ -74,33 +91,37 @@ import { cursos } from "../data/cursos";
   }
 
   .card-back {
-  background-color: oklch(21% 0.034 264.665);
-  color: black;
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-between; 
-  padding: 1rem;
-  transform: rotateY(180deg);
-  overflow-y: auto; 
-}
+    background-color: oklch(21% 0.034 264.665);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+  }
 
-.card-back .volver-btn {
-  background-color: #5372F0;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  .card-back .volver-btn {
+    background-color: #5372f0;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
 
-.card-back .volver-btn:hover {
-  background-color: #0A256E;
-}
+  .card-back .volver-btn:hover {
+    background-color: #0a256e;
+  }
 
-  .card-back h6 { color: white; }
-  .card-back p { color: oklch(70.7% 0.022 261.325); }
+  .card-back h6 {
+    color: white;
+  }
+  .card-back p {
+    color: oklch(70.7% 0.022 261.325);
+  }
 
   .card:hover .card-front img {
     transform: scale(1.1);
