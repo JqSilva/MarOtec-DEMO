@@ -12,6 +12,7 @@ import ISA from '../assets/images/isa.webp';
 import MF from '../assets/images/mf.webp';
 import consel from '../assets/images/consel.webp';
 import ollagua from '../assets/images/ollagua.webp';
+import DIEMAC from '../assets/images/DIEMAC.webp';
 
 export interface Empresa {
   nombre: string;
@@ -97,10 +98,13 @@ export const empresas: Empresa[] = [
     nombre: "OLLAGUA",
     logo: ollagua,
     url: "https://collagua.cl/"
+  },
+
+  {
+    nombre: "Diemac",
+    logo: DIEMAC,
+    url: "https://www.diemac.cl/"
   }
-
-
-
 ];
 
 

@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { empresas } from '../data/empresas';
+
+// Crear el array invertido una sola vez
+const empresasReversed = [...empresas].reverse();
 ---
 
 <section class="py-20 text-white bg-gradient-to-b from-[#101828] via-gray-800 to-gray-900 overflow-hidden">
@@ -35,7 +38,7 @@ import { empresas } from '../data/empresas';
     <!-- Marquesina inferior (dirección inversa) -->
     <div class="marquee-container">
       <div class="marquee marquee-reverse">
-        {[...empresas, ...empresas].reverse().map((empresa) => (
+        {[...empresasReversed, ...empresasReversed].map((empresa) => (
           <div class="marquee-item">
             <a href={empresa.url} target="_blank" rel="noopener noreferrer" title={empresa.nombre}>
               <div class="bg-white backdrop-blur-md border border-white/30 rounded-xl p-3 md:p-4 hover:bg-white transition-all duration-300 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center shadow-lg">
@@ -63,22 +66,25 @@ import { empresas } from '../data/empresas';
   .marquee {
     display: flex;
     gap: 2rem;
-    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  .marquee {
+    animation: scroll 100s linear infinite;
   }
 
   .marquee-reverse {
-    animation: scroll-reverse 40s linear infinite;
+    animation: scroll-reverse 100s linear infinite;
   }
 
-  /* Móvil: animación más rápida y logos más grandes */
+  /* Móvil: animación más rápida */
   @media (max-width: 768px) {
     .marquee {
-      gap: 1.5rem;
-      animation: scroll 20s linear infinite;
+      animation: scroll 35s linear infinite;
     }
     
     .marquee-reverse {
-      animation: scroll-reverse 20s linear infinite;
+      animation: scroll-reverse 30s linear infinite;
     }
   }
 
@@ -91,20 +97,27 @@ import { empresas } from '../data/empresas';
   }
 
   @keyframes scroll {
-    0% {
+    from {
       transform: translateX(0);
     }
-    100% {
+    to {
       transform: translateX(-50%);
     }
   }
 
   @keyframes scroll-reverse {
-    0% {
+    from {
       transform: translateX(-50%);
     }
-    100% {
+    to {
       transform: translateX(0);
     }
   }
 </style>
+
+<script>
+import { empresas } from "../data/empresas";
+
+  console.log('Array original:', empresas);
+  console.log('Array invertido:', [...empresas].reverse());
+</script>
