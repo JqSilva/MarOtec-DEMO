@@ -1,4 +1,24 @@
 import imagen_servicio from '../assets/images/servicios/servicio.webp';
+import supervision from '../assets/images/servicios/supervision.webp';
+import camion_hidroelevador from '../assets/images/servicios/camion-hidroelevador.webp';
+import normativa from '../assets/images/servicios/normativa-vigente.webp';
+import rescate_altura from '../assets/images/servicios/rescate-altura.webp';
+import mantenimiento13kv from '../assets/images/servicios/mantenimiento13-36kv.webp';
+import lavado_aislacion from '../assets/images/servicios/lavado-aislacion.webp';
+import corte_poda from '../assets/images/servicios/poda-arboles.webp';
+import andamio_aislado from '../assets/images/servicios/andamio-aislado.webp';
+import seguridad_riesgos from '../assets/images/servicios/seguridad-riesgos.webp';
+import curso_basico_mt from '../assets/images/servicios/curso-basico-mt.webp';
+import curso_basico_at from '../assets/images/servicios/curso-basico-at.webp';
+
+
+import trabajos_en_tension from '../assets/images/servicios/trabajos-en-tension.webp';
+import ingeniero_tct from '../assets/images/servicios/ingeniero-tct.webp';
+import ingeniero_hsec from '../assets/images/servicios/ingeniero-hsec.webp';
+import especialista_tct from '../assets/images/servicios/especialista-tct.webp';
+import inspector_tct from '../assets/images/servicios/inspector-tct.webp';
+
+
 
 export const cursos = [
   // === CAPACITACIONES ===
@@ -12,7 +32,7 @@ export const cursos = [
     resumen: "Supervisión de trabajos en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 16,
-    imagen: imagen_servicio,
+    imagen: supervision,
   },
   {
     tipo: "capacitacion",
@@ -24,7 +44,7 @@ export const cursos = [
     resumen: "Uso seguro de camión hidroelevador aislado en MT.",
     modalidad: "Presencial",
     horas: 16,
-    imagen: imagen_servicio,
+    imagen: camion_hidroelevador,
   },
   {
     tipo: "capacitacion",
@@ -36,7 +56,7 @@ export const cursos = [
     resumen: "Normativa para trabajos en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: normativa,
   },
   {
     tipo: "capacitacion",
@@ -48,7 +68,7 @@ export const cursos = [
     resumen: "Rescate en altura y uso seguro de SPDC.",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: rescate_altura,
   },
   {
     tipo: "capacitacion",
@@ -60,7 +80,7 @@ export const cursos = [
     resumen: "Mantenimiento en instalaciones de 13,2 a 36 kV.",
     modalidad: "Presencial",
     horas: 45,
-    imagen: imagen_servicio,
+    imagen: mantenimiento13kv,
   },
   {
     tipo: "capacitacion",
@@ -72,7 +92,7 @@ export const cursos = [
     resumen: "Lavado de aislación en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 16,
-    imagen: imagen_servicio,
+    imagen: lavado_aislacion, 
   },
   {
     tipo: "capacitacion",
@@ -84,7 +104,7 @@ export const cursos = [
     resumen: "Corte y poda de árboles en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 16,
-    imagen: imagen_servicio,
+    imagen: corte_poda, 
   },
   {
     tipo: "capacitacion",
@@ -96,7 +116,7 @@ export const cursos = [
     resumen: "Uso seguro de andamio aislado en subestaciones MT.",
     modalidad: "Presencial",
     horas: 16,
-    imagen: imagen_servicio,
+    imagen: andamio_aislado, 
   },
   {
     tipo: "capacitacion",
@@ -108,7 +128,7 @@ export const cursos = [
     resumen: "Riesgos eléctricos para trabajos en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: seguridad_riesgos, 
   },
   {
     tipo: "capacitacion",
@@ -120,7 +140,7 @@ export const cursos = [
     resumen: "Trabajos próximos a instalaciones energizadas (MT).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: curso_basico_mt, 
   },
   {
     tipo: "capacitacion",
@@ -132,7 +152,7 @@ export const cursos = [
     resumen: "Trabajos próximos a instalaciones energizadas (AT).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: curso_basico_at,
   },
 
   // === CERTIFICACIONES ===
@@ -146,7 +166,7 @@ export const cursos = [
     resumen: "Certificación de trabajos en instalaciones energizadas hasta 36 kV.",
     modalidad: "Presencial",
     horas: 40,
-    imagen: imagen_servicio,
+    imagen: trabajos_en_tension, 
   },
   {
     tipo: "certificacion",
@@ -158,7 +178,7 @@ export const cursos = [
     resumen: "Certificación para Ingeniero TcT (hasta 36 kV).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: ingeniero_tct,
   },
   {
     tipo: "certificacion",
@@ -170,7 +190,7 @@ export const cursos = [
     resumen: "Certificación para Ingeniero HSEC (hasta 36 kV).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: ingeniero_hsec, 
   },
   {
     tipo: "certificacion",
@@ -182,7 +202,7 @@ export const cursos = [
     resumen: "Certificación de Especialista TcT (hasta 36 kV).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: especialista_tct, 
   },
   {
     tipo: "certificacion",
@@ -194,6 +214,6 @@ export const cursos = [
     resumen: "Certificación de Inspector de TcT (hasta 36 kV).",
     modalidad: "Presencial",
     horas: 8,
-    imagen: imagen_servicio,
+    imagen: inspector_tct, 
   },
 ];
