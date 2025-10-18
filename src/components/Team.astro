@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import imagen_juan from "../assets/images/juan.webp";
+import imagen_juan from "../assets/images/Equipo/juan.webp";
+import imagen_carlos from "../assets/images/Equipo/Carlos_Vives.webp";
 import imagen_default from "../assets/images/default.webp";
 ---
 
@@ -22,13 +23,13 @@ import imagen_default from "../assets/images/default.webp";
         </div>
         <div
             id="relatores-container"
-            class="grid gap-8 mb-6 lg:mb-16 grid-cols-1"
+            class="grid gap-8 mb-6 lg:mb-16 grid-cols-1 [@media(min-width:1150px)]:grid-cols-2"
         >
             <!-- Tarjetas de relatores -->
 
             <!-- Tarjeta 1 -->
             <div
-                class="slide-left items-center bg-white rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700"
+                class="slide-left items-center bg-white rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700 sm:h-[300px]"
                 data-start="top 80%"
                 data-delay="0"
                 data-duration="0.6"
@@ -36,7 +37,7 @@ import imagen_default from "../assets/images/default.webp";
                 <Image
                     src={imagen_juan}
                     alt="Juan Carlos"
-                    class="rounded-lg sm:rounded-none sm:rounded-l-lg sm:w-[300px]"
+                    class="object-cover w-full h-[300px] sm:rounded-none sm:rounded-l-lg sm:w-[300px]"
                 />
                 <div class="p-5">
                     <h3
@@ -111,15 +112,15 @@ import imagen_default from "../assets/images/default.webp";
             <!-- Mas tarjetas -->
             <!-- Tarjeta 2 -->
             <div
-                class="slide-right items-center bg-white rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700"
+                class="slide-right items-center bg-white rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700 sm:h-[300px]"
                 data-start="top 80%"
                 data-delay="0"
                 data-duration="0.6"
             >
                 <Image
-                    src={imagen_default}
-                    alt="Juan Carlos"
-                    class="rounded-lg sm:rounded-none sm:rounded-l-lg sm:w-[300px]"
+                    src={imagen_carlos}
+                    alt="Carlos vives"
+                    class="object-cover w-full h-[300px] sm:rounded-none sm:rounded-l-lg sm:w-[300px]"
                 />
                 <div class="p-5">
                     <h3
@@ -192,15 +193,4 @@ import imagen_default from "../assets/images/default.webp";
     </div>
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("relatores-container");
-        const cards = container?.querySelectorAll("div[data-start]");
 
-        if (cards && cards.length === 1) {
-            container?.classList.add("place-items-center");
-        } else if (cards && cards.length >= 2) {
-            container?.classList.add("md:grid-cols-2");
-        }
-    });
-</script>
