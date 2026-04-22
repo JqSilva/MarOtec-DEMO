@@ -12,7 +12,7 @@ import ISA from '../assets/images/empresas/isa.webp';
 import MF from '../assets/images/empresas/mf.webp';
 import consel from '../assets/images/empresas/consel.webp';
 import ollagua from '../assets/images/empresas/ollagua.webp';
-import DIEMAC from '../assets/images/empresas/DIEMAC.webp';
+import DIEMAC from '../assets/images/empresas/diemac.webp';
 
 export interface Empresa {
   nombre: string;
