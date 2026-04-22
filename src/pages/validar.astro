@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section class="min-h-screen pt-40 pb-20 flex flex-col items-center bg-[#101828] text-white px-4">
+    <div class="max-w-2xl w-full text-center">
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-4 text-[#5372F0] leading-tight">
+            Verificación <br class="sm:hidden" /> <span class="whitespace-nowrap">Mar Otec</span>
+        </h1>
+        <p class="text-gray-400 mb-8">Ingrese el RUT del alumno o el Código del Certificado.</p>
+
+        <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 shadow-xl">
+            <div class="flex flex-col sm:flex-row gap-4">
+                <input 
+                type="text" 
+                id="rutInput" 
+                placeholder="RUT o Código de Certificado" 
+                class="flex-1 p-3 rounded-lg bg-gray-900 border border-gray-600 focus:ring-2 focus:ring-[#5372F0] outline-none text-white"
+                />
+                <button id="btnBuscar" class="bg-[#5372F0] hover:bg-[#4361EE] px-8 py-3 rounded-lg font-bold transition-all text-white">
+                Validar
+                </button>
+            </div>
+        </div>
+
+    <div id="modalResultado" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div id="cardResultado" class="relative w-full max-w-md p-8 rounded-2xl border flex flex-col items-center gap-4 shadow-2xl transform transition-all scale-95 opacity-0">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div id="iconStatus">
+                <img src="images/logo.webp" alt="Logo Mar-OTec" class="h-12">
+            </div>
+            <h2 id="msgStatus" class="text-2xl font-bold"></h2>
+            
+            <div class="w-full h-px bg-gray-700 my-2"></div>
+            
+            <div class="text-left w-full space-y-3 text-gray-300">
+            <p class="flex justify-between"><strong>Alumno:</strong> <span id="resNombre" class="text-white text-right"></span></p>
+            <p class="flex justify-between"><strong>Curso:</strong> <span id="resCurso" class="text-white text-right"></span></p>
+            <p class="flex justify-between"><strong>Estado:</strong> <span id="resEstado" class="font-bold text-right"></span></p>
+            </div>
+
+            <button id="btnEntendido" class="mt-4 w-full py-3 bg-gray-700 hover:bg-gray-600 rounded-xl font-bold transition">
+            Entendido
+            </button>
+        </div>
+    </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+    // PEGA AQUÍ TU URL DE LA IMPLEMENTACIÓN DE GOOGLE (LA QUE TERMINA EN /exec)
+    const API_URL = "https://script.google.com/macros/s/AKfycbx5KQMS3rIzt-1hKfSGWvBStBXKqjYpuZCitLq2JuSu3x0SrcFD9a9lCPLyfTHc3cz2GQ/exec";
+
+    const btn = document.getElementById('btnBuscar');
+    const input = document.getElementById('rutInput');
+    const modal = document.getElementById('modalResultado');
+    const card = document.getElementById('cardResultado');
+
+    async function validarEnVivo() {
+        const query = input.value.trim(); // Enviamos el texto tal cual
+        if (!query) return;
+
+        btn.innerText = "Buscando...";
+        btn.disabled = true;
+
+        try {
+            // Pasamos el valor como 'id' (el script de Google ya sabe manejarlo)
+            const response = await fetch(`${API_URL}?id=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            mostrarResultado(data);
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Error de conexión.");
+        } finally {
+            btn.innerText = "Validar";
+            btn.disabled = false;
+        }
+    }
+
+    function mostrarResultado(alumno) {
+        const msg = document.getElementById('msgStatus');
+        
+        
+        // Abrir modal (reemplaza a resultadoDiv.classList)
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        setTimeout(() => {
+        card.classList.remove('scale-95', 'opacity-0');
+        card.classList.add('scale-100', 'opacity-100');
+        }, 10);
+
+        if (alumno && !alumno.error) {
+        card.className = "relative w-full max-w-md p-8 rounded-2xl border border-green-500 bg-gray-900 flex flex-col items-center gap-4 transition-all duration-300";
+        msg.textContent = "Certificado Válido";
+        msg.className = "text-2xl font-bold text-green-400";
+        
+        
+        document.getElementById('resNombre').textContent = alumno.NOMBRE;
+        document.getElementById('resCurso').textContent = alumno.CURSO;
+        document.getElementById('resEstado').textContent = "AUTORIZADO";
+        document.getElementById('resEstado').className = "text-green-400 font-bold";
+        } else {
+        card.className = "relative w-full max-w-md p-8 rounded-2xl border border-red-500 bg-gray-900 flex flex-col items-center gap-4 transition-all duration-300";
+        msg.textContent = "No Encontrado";
+        msg.className = "text-2xl font-bold text-red-400";
+        
+        
+        document.getElementById('resNombre').textContent = "---";
+        document.getElementById('resCurso').textContent = "---";
+        document.getElementById('resEstado').textContent = "SIN REGISTRO";
+        document.getElementById('resEstado').className = "text-red-400 font-bold";
+        }
+    }
+
+    const cerrarModal = () => {
+        card.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        }, 200);
+    };
+
+    btn.addEventListener('click', validarEnVivo);
+    input.addEventListener('keypress', (e) => { if(e.key === 'Enter') validarEnVivo(); });
+    document.getElementById('closeModal').addEventListener('click', cerrarModal);
+    document.getElementById('btnEntendido').addEventListener('click', cerrarModal);
+    modal.addEventListener('click', (e) => { if(e.target === modal) cerrarModal(); });
+</script>
