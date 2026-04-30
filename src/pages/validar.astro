@@ -85,17 +85,23 @@ import Layout from "../layouts/Layout.astro";
 
     async function validarEnVivo() {
         const query = input.value.trim();
+        token = "mar-otec-873129831";
         if (!query) return;
 
         btn.innerText = "Buscando...";
         btn.disabled = true;
 
+        const urlBusqueda = `${API_URL}?id=${encodeURIComponent(query)}?auth=${token}`;
         try {
-            const response = await fetch(`${API_URL}?id=${encodeURIComponent(query)}`);
+            const response = await fetch(urlBusqueda, {
+                method: 'GET'
+            });
+            
             const data = await response.json();
             mostrarResultado(data);
         } catch (error) {
-            alert("Error de conexión.");
+            console.error("Error detallado:", error);
+            alert("Error de conexión o token inválido.");
         } finally {
             btn.innerText = "Validar";
             btn.disabled = false;
