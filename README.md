@@ -1,6 +1,6 @@
-# 🌐 Mar Otec DEMO
+# Mar Otec 
 
-Landing page demo para **Mar Otec**, una OTEC chilena dedicada a la capacitación y certificación en **trabajos con tensión (TcT)** e **instalaciones energizadas**.  
+Landing page para **Mar Otec**, una OTEC chilena dedicada a la capacitación y certificación en **trabajos con tensión (TcT)** e **instalaciones energizadas**.  
 Construido con **Astro**, **TailwindCSS**, animaciones con **GSAP**, y **Swiper.js** para sliders.
 
 [![Astro](https://img.shields.io/badge/Astro-5.8-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
@@ -12,13 +12,7 @@ Construido con **Astro**, **TailwindCSS**, animaciones con **GSAP**, y **Swiper.
 
 ---
 
-## 🚀 Demo en Producción
-
-👉 [Ver sitio en GitHub Pages](https://jqsilva.github.io/MarOtec-DEMO)
-
----
-
-## 🛠️ Tecnologías Usadas
+## Tecnologías Usadas
 
 - [Astro](https://astro.build/) – Framework moderno para sitios estáticos y SPA híbridas.
 - [TailwindCSS](https://tailwindcss.com/) – Estilos con utilidades.
@@ -29,7 +23,7 @@ Construido con **Astro**, **TailwindCSS**, animaciones con **GSAP**, y **Swiper.
 
 ---
 
-## 📦 Instalación y Uso
+## Instalación y Uso
 
 Clonar el repositorio y luego instalar dependencias:
 
@@ -46,33 +40,10 @@ npm install
 | `npm run dev`   | Inicia servidor local en `http://localhost:4321`                       |
 | `npm run build` | Compila la versión optimizada del sitio en `./dist/`                   |
 | `npm run preview` | Previsualiza la build en local antes de desplegar                    |
-| `./deploy.sh`   | Script personalizado para desplegar en la rama `gh-pages`              |
 
 ---
 
-## 🔄 Despliegue
-
-Existen **dos opciones** de deploy:
-
-1. **Automático con GitHub Actions**  
-   Cada push a la rama `master` activa el workflow `.github/workflows/astro.yml`, que construye y publica en **GitHub Pages**.
-
-2. **Manual con script**  
-   Ejecuta:
-
-   ```bash
-   ./deploy.sh
-   ```
-
-   Esto:
-   - Construye el proyecto
-   - Copia la carpeta `dist/`
-   - Limpia la rama `gh-pages`
-   - Publica automáticamente 🚀
-
----
-
-## 👤 Créditos
+## Créditos
 
 Desarrollado por [Joaquín Silva](https://github.com/JqSilva)  
-Proyecto **demo** de Mar Otec para certificaciones eléctricas.
+Proyecto de Mar Otec para certificaciones eléctricas.
