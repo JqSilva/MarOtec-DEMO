@@ -23,5 +23,11 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-
 deploy.sh
+
+# graphify
+graphify-out/
+.graphify*
+
+# cloudflare / wrangler
+.wrangler/
