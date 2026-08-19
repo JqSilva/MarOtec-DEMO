@@ -5,7 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://mar-otec.com',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile',
+  }),
   vite: {
     plugins: [tailwindcss()]
   },
